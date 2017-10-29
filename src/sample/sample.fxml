@@ -22,13 +22,13 @@
       <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
    <children>
-      <Button mnemonicParsing="false" onAction="#locateFile" prefHeight="25.0" prefWidth="127.0" text="Button" GridPane.rowIndex="4" />
+      <Button mnemonicParsing="false" onAction="#enter" prefHeight="25.0" prefWidth="127.0" text="Enter Roulette" GridPane.rowIndex="4" />
       <Label prefHeight="31.0" prefWidth="100.0" text="Login" />
       <Label prefHeight="26.0" prefWidth="100.0" text="Password" GridPane.rowIndex="1" />
-      <TextField fx:id="login" GridPane.columnIndex="1" />
-      <TextField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="login" text="slava_rur@mail.ru" GridPane.columnIndex="1" />
+      <TextField fx:id="password" text="SlavikSingSing94" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label prefHeight="27.0" prefWidth="100.0" text="Мин.ставка" GridPane.rowIndex="2" />
       <TextField fx:id="amount" text="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" onAction="#test" prefHeight="42.0" prefWidth="100.0" text="Test" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" text="Start" GridPane.columnIndex="1" GridPane.rowIndex="4" />
    </children>
 </GridPane>
