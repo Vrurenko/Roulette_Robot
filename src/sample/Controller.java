@@ -18,6 +18,11 @@ public class Controller {
 
     @FXML
     private void enter(ActionEvent event) {
-        new Player().start(login.getText(), password.getText());
+        Player.start(login.getText(), password.getText());
+    }
+
+    @FXML
+    private void play(ActionEvent event) {
+
     }
 }
