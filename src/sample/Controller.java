@@ -20,9 +20,11 @@ public class Controller {
     private CheckBox history;
     @FXML
     private CheckBox game;
+    @FXML
+    private TextField file;
 
     @FXML
-    private void enter(ActionEvent event) {
+    private void enter(ActionEvent actionEvent) {
         driver = Player.start(login.getText(), password.getText());
     }
 
@@ -31,8 +33,13 @@ public class Controller {
         new Thread(() -> {
             while (history.isSelected()) {
                 driver.navigate().refresh();
-                Human.wait(5);
+                History.remember(Parser.getRaund(driver.getPageSource()));
+                Human.wait(15);
             }
         }).start();
+    }
+
+    @FXML
+    private void selectFile(ActionEvent event) {
     }
 }

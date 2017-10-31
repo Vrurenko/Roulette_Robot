@@ -1,6 +1,6 @@
 package sample;
 
-public class Solver {
+class Solver {
 
     public static int getSeriesLength(String[] results){
         int length = 1;

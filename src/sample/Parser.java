@@ -6,7 +6,7 @@ import org.jsoup.select.Elements;
 
 class Parser {
 
-    public static String[] getResults(String html){
+    static String[] getResults(String html){
         Document document = Jsoup.parse(html);
         Elements results = document.getElementsByAttributeValue("id","results");
         String[] colors = new String[8];
@@ -33,10 +33,10 @@ class Parser {
         return Integer.valueOf(element.text().replaceAll(" ",""));
     }
 
-    public static int getRaund(String html){
+    static String getRaund(String html){
         Document document = Jsoup.parse(html);
         Elements element = document.getElementsByAttributeValue("id","double_game_num");
-        return Integer.valueOf(element.text());
+        return element.text();
     }
 
     public static int getTimer(String html){
