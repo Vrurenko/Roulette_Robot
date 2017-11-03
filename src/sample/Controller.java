@@ -31,15 +31,32 @@ public class Controller {
     @FXML
     private void play(ActionEvent event) {
         new Thread(() -> {
-            while (history.isSelected()) {
+            String prevColor = "";
+            Integer prevRound = 0;
+            Integer currentSeries = 1;
+            while (history.isSelected() || game.isSelected()) {
                 driver.navigate().refresh();
-                History.remember(Parser.getRaund(driver.getPageSource()));
+                String html = driver.getPageSource();
+                Integer round = Parser.getRaund(html);
+                String color = Parser.getLastColor(html);
+                if (round > prevRound) {
+                    if (color.equals(prevColor)) {
+                        currentSeries++;
+                    } else {
+                        History.addSeries(currentSeries);
+                        currentSeries = 1;
+                        prevColor = color;
+                    }
+                    prevRound = round;
+                }
+                Main.setStageTitle("Current series equals " + currentSeries + " of " + color);
                 Human.wait(15);
             }
         }).start();
     }
 
     @FXML
-    private void selectFile(ActionEvent event) {
+    private void save(ActionEvent event) {
+        History.saveSeries();
     }
 }

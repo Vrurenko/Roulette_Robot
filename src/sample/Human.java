@@ -10,7 +10,6 @@ class Human {
         try {
             Robot robot = new Robot();
             robot.delay(time*1000);
-
         } catch (AWTException e) {
             e.printStackTrace();
         }
