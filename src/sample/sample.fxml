@@ -31,11 +31,11 @@
       <TextField fx:id="password" text="SlavikSingSing94" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label prefHeight="27.0" prefWidth="100.0" text="Мин.ставка" GridPane.rowIndex="3" />
       <TextField fx:id="amount" text="100" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button mnemonicParsing="false" onAction="#play" prefHeight="25.0" prefWidth="152.0" text="Start" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <Button fx:id="playButton" mnemonicParsing="false" onAction="#play" prefHeight="25.0" prefWidth="152.0" text="Start" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       <CheckBox fx:id="game" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" text="Игра" GridPane.columnIndex="1" GridPane.rowIndex="5" />
       <CheckBox fx:id="history" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" text="История" GridPane.rowIndex="5" />
       <Label prefHeight="34.0" prefWidth="95.0" text="Путь к истории" GridPane.rowIndex="4" />
       <TextField fx:id="file" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="157.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="157.0" text="Save" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
    </children>
 </GridPane>

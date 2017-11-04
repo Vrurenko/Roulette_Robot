@@ -17,7 +17,6 @@ class Player {
         Human.wait(3);
 
         WebElement vk = driver.findElement(By.className("landing-link-soc"));
-
         new Actions(driver).moveToElement(vk).click().perform();
 
         driver.findElement(By.name("email")).sendKeys(mail);
