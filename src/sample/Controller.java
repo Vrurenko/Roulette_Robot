@@ -29,6 +29,11 @@ public class Controller {
     }
 
     @FXML
+    private void save(ActionEvent event) {
+        History.saveSeries();
+    }
+
+    @FXML
     private void play(ActionEvent event) {
         new Thread(() -> {
             String prevColor = "";
@@ -43,7 +48,7 @@ public class Controller {
                 String color = Parser.getLastColor(html);
 
                 if (round > prevRound) {
-                    if (color.equals(prevColor)) {
+                    if (color.equals(prevColor) || color.equals("Yellow")) {
                         currentSeries++;
                     } else {
                         History.addSeries(currentSeries);
@@ -62,8 +67,4 @@ public class Controller {
         }).start();
     }
 
-    @FXML
-    private void save(ActionEvent event) {
-        History.saveSeries();
-    }
 }
