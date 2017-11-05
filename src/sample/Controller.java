@@ -8,9 +8,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import org.openqa.selenium.WebDriver;
 
-public class Controller {
+import java.util.Timer;
+import java.util.TimerTask;
 
-    private WebDriver driver;
+public class Controller {
 
     @FXML private TextField login;
     @FXML private TextField password;
@@ -21,9 +22,11 @@ public class Controller {
     @FXML private Button playButton;
     @FXML private Button saveButton;
 
+    static WebDriver driver;
+
     @FXML
     private void enter(ActionEvent actionEvent) {
-        driver = Player.start(login.getText(), password.getText());
+        driver = Player.login(login.getText(), password.getText());
         playButton.setVisible(true);
         saveButton.setVisible(true);
     }
@@ -58,6 +61,15 @@ public class Controller {
                     prevRound = round;
                 }
 
+                if (game.isSelected() && Parser.getBonuses(html) > 300) {
+                    if (currentSeries == History.maxSeries) {
+                        Human.putOn(Parser.getBonuses(html) / 3, prevColor);
+                    }
+                    if (currentSeries > History.maxSeries) {
+                        Human.putOn(Parser.getBonuses(html), prevColor);
+                    }
+                }
+
                 Integer finalCurrentSeries = currentSeries;
                 String finalPrevColor = prevColor;
                 Platform.runLater(() -> Main.setStageTitle("Current series is " + finalCurrentSeries + " of " + finalPrevColor));
@@ -65,6 +77,13 @@ public class Controller {
                 Human.wait(15);
             }
         }).start();
-    }
 
+        new Timer().schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                        History.saveSeries();
+                    }
+                }, 60 * 60 * 1000, 60 * 60 * 1000);
+    }
 }

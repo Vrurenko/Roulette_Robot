@@ -8,6 +8,7 @@ import java.util.Map;
 
 class History {
     private static final String file = "C:\\Users\\Comandante\\Desktop\\Roulette Robot\\resources\\series.txt";
+    static int maxSeries = 12;
 
     private static int count = 0;
     private static StringBuilder batch = new StringBuilder();

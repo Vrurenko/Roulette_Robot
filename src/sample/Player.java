@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 class Player {
     private static final String DRIVER = "C:\\Users\\Comandante\\Desktop\\Roulette Robot\\src\\libs\\chromedriver.exe";
 
-    static WebDriver start(String mail, String pass) {
+    static WebDriver login(String mail, String pass) {
         System.setProperty("webdriver.chrome.driver", DRIVER);
         WebDriver driver = new ChromeDriver();
 

@@ -34,7 +34,7 @@ class Parser {
         return colors;
     }
 
-    public static int getBonuses(String html){
+    static int getBonuses(String html){
         Document document = Jsoup.parse(html);
         Elements element = document.getElementsByAttributeValue("class","user_bonuses");
         return Integer.valueOf(element.text().replaceAll(" ",""));
