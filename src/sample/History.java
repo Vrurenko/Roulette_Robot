@@ -3,6 +3,8 @@ package sample;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,12 +32,14 @@ class History {
     }
 
     static void saveSeries() {
-        StringBuilder text = new StringBuilder("--------------------------------------\n");
+        String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+
+        StringBuilder text = new StringBuilder("---------------" + time + "----------------\n");
 
         seriesMap.forEach( (key, value) -> text.append(key)
                                                .append(" : ")
                                                .append(value)
-                                               .append("\n"));
+                                               .append(" \n"));
 
         try (PrintStream printStream = new PrintStream(new FileOutputStream(file, true), true)) {
             printStream.println(text);

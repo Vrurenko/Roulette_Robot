@@ -68,6 +68,9 @@ public class Controller {
                     if (currentSeries > History.maxSeries) {
                         Human.putOn(Parser.getBonuses(html), prevColor);
                     }
+                    if (currentSeries == 1) {
+                        Human.putOn(100, prevColor);
+                    }
                 }
 
                 Integer finalCurrentSeries = currentSeries;
